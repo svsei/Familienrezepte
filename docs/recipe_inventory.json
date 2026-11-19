@@ -1,0 +1,117 @@
+[
+  {
+    "id": "soba",
+    "name": "Soba-Nudeln mit Sesam-Tofu und Edamame",
+    "steps": 6
+  },
+  {
+    "id": "mujadara",
+    "name": "Mujadara mit Röstzwiebeln und Gurkenjoghurt",
+    "steps": 6
+  },
+  {
+    "id": "kokos",
+    "name": "Ingwer-Kokos-Hähnchen mit Edamame",
+    "steps": 6
+  },
+  {
+    "id": "blumenkohl",
+    "name": "Gerösteter Blumenkohl, Kichererbsen und Tahini",
+    "steps": 6
+  },
+  {
+    "id": "lachs",
+    "name": "Miso-Lachs mit Süßkartoffeln und Brokkoli",
+    "steps": 6
+  },
+  {
+    "id": "shawarma",
+    "name": "Hähnchen-Shawarma mit Hummus und Fladenbrot",
+    "steps": 6
+  },
+  {
+    "id": "rigatoni",
+    "name": "Rigatoni mit Hokkaido, Linsen und Salbei",
+    "steps": 6
+  },
+  {
+    "id": "paccheri",
+    "name": "Paccheri mit Zucchini-Parmesan-Creme",
+    "steps": 6
+  },
+  {
+    "id": "koefte",
+    "name": "Smashed Potatoes mit Köfte und Tahini-Joghurt",
+    "steps": 7
+  },
+  {
+    "id": "roesti",
+    "name": "Kartoffelrösti mit Spitzkohl, Apfel und Kräuterquark",
+    "steps": 7
+  },
+  {
+    "id": "airfryer",
+    "name": "Crispy Potato Bowl mit Spinat, Feta und Kräuterquark",
+    "steps": 7
+  },
+  {
+    "id": "brot",
+    "name": "Vollkornbrot mit Übernachtgare",
+    "steps": 7
+  },
+  {
+    "id": "hummus",
+    "name": "Cremiger Hummus",
+    "steps": 3
+  },
+  {
+    "id": "edamame-creme",
+    "name": "Edamame-Tahini-Creme",
+    "steps": 3
+  },
+  {
+    "id": "paprika-creme",
+    "name": "Paprika-Walnuss-Aufstrich",
+    "steps": 3
+  },
+  {
+    "id": "hafer-beere",
+    "name": "Beeren-Walnuss-Porridge",
+    "steps": 3
+  },
+  {
+    "id": "hafer-overnight",
+    "name": "Beeren-Overnight-Oats",
+    "steps": 3
+  },
+  {
+    "id": "hafer-birne",
+    "name": "Birnen-Mandel-Müsli",
+    "steps": 3
+  },
+  {
+    "id": "hafer-mango",
+    "name": "Mango-Nuss-Skyr-Bowl",
+    "steps": 3
+  },
+  {
+    "id": "hafer-apfel",
+    "name": "Apfel-Zimt-Porridge",
+    "steps": 3
+  },
+  {
+    "id": "hafer-chia",
+    "name": "Beeren-Chia-Quark-Bowl",
+    "steps": 3
+  },
+  {
+    "id": "hafer-schoko",
+    "name": "Schoko-Bananen-Porridge",
+    "steps": 3
+  },
+  {
+    "id": "hafer-kuerbis",
+    "name": "Hokkaido-Vanille-Porridge",
+    "steps": 4
+  }
+]

@@ -1,0 +1,23 @@
+/* Rezepte werden ausschließlich nach Prüfung und Bestätigung veröffentlicht. */
+body.ra-open{overflow:hidden}
+.ra-backdrop{position:fixed;inset:0;z-index:99;background:rgba(12,34,19,.56);display:flex;align-items:flex-end;justify-content:center}
+.ra-sheet{width:min(100%,760px);max-height:96dvh;overflow:auto;background:#f7f8f3;border-radius:24px 24px 0 0;box-shadow:0 12px 40px #172b2260}
+.ra-header{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;padding:19px 21px;background:#fff;z-index:1;border-bottom:1px solid #dce6d9}
+.ra-header h2{font-size:23px;line-height:1.15;margin-top:3px;color:#194829}
+.ra-close{background:#eaf1e7;border:0;border-radius:11px;font-size:26px;width:39px;height:39px;flex:none}
+.ra-body{padding:18px 18px calc(26px + env(safe-area-inset-bottom));display:grid;gap:16px}
+.ra-intro{background:#e6efe2;border-radius:16px;padding:17px;line-height:1.45}
+.ra-intro strong{display:block;font-size:15px;color:#1e4b2f}.ra-intro p{font-size:13px;margin-top:7px;color:#42604a}
+.ra-tools,.ra-actions{display:flex;flex-wrap:wrap;gap:9px}.ra-label{display:grid;gap:8px;color:#214d31;font-weight:750;font-size:13px}
+.ra-editor{height:290px;width:100%;resize:vertical;border:1px solid #bfd0ba;background:#fff;border-radius:12px;padding:13px;font-size:12px;line-height:1.45;white-space:pre;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#20382c}
+.ra-editor:focus{outline:2px solid #5a9472}.ra-review{border:1px solid #d1dfcc;background:#fff;padding:14px;border-radius:15px;display:grid;gap:10px}
+.ra-review h3{font-size:15px}.ra-check{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid #e5ede3}.ra-check:first-of-type{border-top:0}
+.ra-check div{display:grid;gap:4px}.ra-check strong{font-size:13px}.ra-check small{font-size:11px;color:#607463}
+.ra-chip{font-size:11px;font-weight:750;padding:6px 9px;border-radius:30px;white-space:nowrap}.ra-new{background:#d7eee0;color:#1c683d}.ra-update{background:#fff0d6;color:#87631b}
+.ra-muted{font-size:12px;line-height:1.5;color:#657568}.ra-media{padding:15px;background:white;border:1px solid #dae4d6;border-radius:15px;display:grid;gap:8px}
+.ra-media strong{font-size:13px}.ra-media p{font-size:12px;color:#5d6f60;line-height:1.5}.ra-media input{max-width:100%}
+.ra-file{position:relative;overflow:hidden}.ra-file input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
+.ra-publish{min-height:47px}.ra-publish:disabled{opacity:.45;cursor:not-allowed}
+@media(min-width:820px){.ra-backdrop{align-items:center;padding:24px}.ra-sheet{border-radius:24px;max-height:calc(100dvh - 48px)}}
+
+.ra-library{max-height:360px;overflow:auto;margin-top:12px}.ra-library-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #dce6d9}.ra-library-row>div:first-child{min-width:0}.ra-library-row strong{display:block;overflow-wrap:anywhere}.ra-library-row small{display:block;color:#657568;margin-top:5px}.ra-library-row .ra-actions{flex-shrink:0}@media(max-width:540px){.ra-library-row{align-items:flex-start;flex-direction:column}.ra-library-row .ra-actions{width:100%}.ra-library-row button{flex:1}}

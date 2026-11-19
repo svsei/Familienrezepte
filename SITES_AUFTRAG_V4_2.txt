@@ -1,0 +1,9 @@
+Bitte aktualisiere ausschließlich meine BESTEHENDE Site https://familienrezepte.actualflour4.chatgpt.site/ auf Familienküche v4.2 – OHNE Magic-Link-Pflicht. Keine neue Site erstellen.
+
+Übernimm aus dem beigefügten ZIP die v4.2-Änderungen im Login aus cloud.js, die Styles, den neuen Service-Worker-Cache und die Versionskennungen. Nutze weiterhin Supabase Auth `signInWithPassword` mit einem einmalig eingegebenen Familienpasswort; für Admins zusätzlich E-Mail/Passwort. Kein Magic-Link-Versand in der App. Die Anmeldung soll wegen `persistSession` auf dem Gerät bestehen bleiben.
+
+Die produktiven `supabaseUrl` und `supabasePublishableKey` aus der VORHANDENEN Site beibehalten. NICHT durch Platzhalter aus der ZIP-config.js ersetzen. Das optional konfigurierbare `familyAccessEmail` kann zunächst leer bleiben – dann fragt die App die Mailadresse des Familienkontos einmalig ab. **Keine Familienpasswörter in Website-Dateien eintragen.**
+
+REZEPTDATEN, SUPABASE-TABELLEN, RLS-POLICIES, Einkaufsliste, Essensplanung, Admin-Rezeptverwaltung, funktionierende Rezeptbildklicks sowie Navigations-Fix v4.1 vollständig bewahren. Insbesondere KEIN PUBLIC/ANON-Zugriff auf Supabase-Tabellen und keine RLS-Deaktivierung.
+
+Bitte zuerst Vorschau für Handy und Desktop mit Login-Formular zeigen und den Site-Build auf Fehler prüfen. Noch NICHT veröffentlichen.

@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import fs from 'node:fs';
+const context={window:{}};vm.runInNewContext(fs.readFileSync('dist/nutrition.js','utf8'),context);const n=context.window.RECIPE_NUTRITION;
+const r={servings:2,ingredients:[{name:'Kartoffeln',qty:1000,unit:'g'},{name:'Olivenöl',qty:2,unit:'EL'},{name:'Feta',qty:100,unit:'g',optional:true}]};
+test('sums base ingredients and optional ingredients separately, with spoon conversion',()=>{const e=n.estimate(r);assert.ok(e.complete);assert.equal(e.total,770+27*8.84);assert.equal(e.optional,265);assert.equal(e.perServing,e.total/2)});
+test('unknown ingredients and units never produce a partial calorie total',()=>{assert.equal(n.estimate({...r,ingredients:[...r.ingredients,{name:'Unbekanntes Produkt',qty:100,unit:'g'}]}).complete,false);assert.equal(n.estimate({...r,ingredients:[{name:'Kartoffeln',qty:2,unit:'Sack'}]}).complete,false)});
+test('bread and spread label the whole unit, not a small serving',()=>{assert.match(n.label({...r,servingLabel:'Brot'}),/kcal \/ Brot/);assert.match(n.label({...r,servingLabel:'Ansatz'}),/kcal \/ Ansatz/)});
+test('recipe edits recalculate rather than reusing stale values',()=>{const before=n.estimate(r);const after=n.estimate({...r,ingredients:r.ingredients.map(i=>({...i,qty:i.qty*2}))});assert.equal(after.total,before.total*2);assert.equal(n.estimate({...r,servings:4}).perServing,before.perServing/2)});
+test('water and spices, egg and garlic piece sizes are distinguished',()=>{assert.equal(n.ingredient({name:'Eiswasser',qty:60,unit:'ml'}).kcal,0);assert.equal(n.ingredient({name:'Knoblauchzehe',qty:1,unit:'Stück'}).grams,3);assert.equal(n.ingredient({name:'Ei zum Binden der Füllung',qty:1,unit:'Stück'}).grams,60)});
+test('macros sum correctly and optional toppings remain separate',()=>{const e=n.estimate(r);assert.equal(e.macros.carbs,150);assert.equal(e.macros.protein,20);assert.equal(e.macros.fat,28);assert.equal(e.macros.fiber,20);assert.equal(e.macrosPerServing.protein,10);assert.equal(e.optionalMacros.protein,14);assert.equal(e.optionalMacrosPerServing.fat,11);});
+test('macro table suppresses incomplete values and labels portion and optional column',()=>{const html=n.table(r);assert.match(html,/Kohlenhydrate/);assert.match(html,/Ballaststoffe/);assert.match(html,/10,0 g/);assert.match(html,/Mit optionalen Zutaten/);assert.equal(n.table({...r,ingredients:[{name:'Mystery',qty:1,unit:'g'}]}),'');assert.match(n.table({...r,servingLabel:'Brot'}),/Pro Brot/)});
+test('doubling batch ingredients and servings preserves per-portion macros',()=>{const e=n.estimate({...r,servings:4,ingredients:r.ingredients.map(i=>({...i,qty:i.qty*2}))});assert.deepEqual(e.macrosPerServing,n.estimate(r).macrosPerServing);});
+
+test('100 g uses base weight and optional ingredients use their own denominator',()=>{const e=n.estimate(r);assert.equal(e.weight,1027);assert.equal(e.optionalWeight,100);const html=n.table(r);assert.match(html,/Pro 100 g/);assert.match(html,/Pro Portion/);assert.match(html,/14,6 g/);assert.match(html,/13,4 g/);assert.match(html,/Zutatenbasis/);assert.match(html,/Energie/)});
+test('100 g values remain constant when scaling the recipe',()=>{const a=n.estimate(r),b=n.estimate({...r,servings:4,ingredients:r.ingredients.map(i=>({...i,qty:i.qty*2}))});assert.equal(a.total/a.weight,b.total/b.weight);assert.equal(n.table({...r,ingredients:[{name:'Wasser',qty:0,unit:'g'}]}),'')});
